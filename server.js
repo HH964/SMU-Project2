@@ -3,7 +3,7 @@ var passport = require("passport");
 var session = require("express-session");
 var exphbs = require("express-handlebars");
 
-var db = require("./app/models");
+var db = require("./models");
 
 var app = express();
 var PORT = process.env.PORT || 5000;
@@ -23,19 +23,19 @@ app.use(passport.initialize());
 app.use(passport.session()); //allows persistent login sessions
 
 //set up handlebars
-app.set("views", "./app/views");
+app.set("views", "./views");
 app.engine("hbs", exphbs({ extname: ".hbs" }));
 app.set("view engine", ".hbs");
 
 app.get("/", function(req, res) {
-	res.send("Welcome to Passport with Sequlize");
+	res.redirect("/signin");
 });
 
 //routes
-require("./app/routes/auth.js")(app, passport);
+require("./routes/auth.js")(app, passport);
 
 //passport init
-require("./app/config/passport/passport.js")(passport, db.User);
+require("./config/passport/passport.js")(passport, db.User);
 
 db.sequelize.sync().then(function() {
 	app.listen(PORT, function() {
