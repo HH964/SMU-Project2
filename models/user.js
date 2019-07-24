@@ -33,5 +33,13 @@ module.exports = function(sequelize, Sequelize) {
 		}
 	});
 
+	User.associate = function(models) {
+		User.hasMany(models.Item, {
+		  foreignKey: {
+			allowNull: false
+		  }
+		});
+	  };
+
 	return User;
 };
