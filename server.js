@@ -10,6 +10,7 @@ var PORT = process.env.PORT || 5000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static("public"))
 
 //for passport
 app.use(
@@ -33,7 +34,8 @@ app.get("/", function(req, res) {
 
 //routes
 require("./routes/auth.js")(app, passport);
-
+require("./routes/html-routes")(app, db);
+require("./routes/api-routes")(app, db);
 //passport init
 require("./config/passport/passport.js")(passport, db.User);
 
@@ -43,6 +45,7 @@ db.sequelize.sync().then(function() {
 	});
 });
 
+<<<<<<< HEAD
 // Static directory
 app.use(express.static("public"));
 
@@ -59,3 +62,13 @@ db.sequelize.sync({ force: true }).then(function() {
   });
 });
 
+=======
+
+// db.Item.create({
+// 	catagory: "books",
+// 	price: 10.00,
+// 	description: "a small man must destroy a ring",
+// 	name: "Harry Potter",
+// 	UserId: 1
+// })
+>>>>>>> master
