@@ -12,6 +12,7 @@ app.use(express.static('public'))
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static("public"))
 
 //for passport
 app.use(
@@ -35,7 +36,9 @@ app.set("view engine", ".hbs");
 
 //routes
 require("./routes/auth.js")(app, passport);
-require("./routes/html-routes.js")(app);
+
+require("./routes/html-routes")(app, db);
+require("./routes/api-routes")(app, db);
 
 //passport init
 require("./config/passport/passport.js")(passport, db.User);
@@ -43,6 +46,16 @@ app.listen(PORT, function() {
 	console.log("App listening on http://localhost:" + PORT);
 });
 
+
 // db.sequelize.sync().then(function() {
 	
 // });
+
+
+// db.Item.create({
+// 	catagory: "books",
+// 	price: 10.00,
+// 	description: "a small man must destroy a ring",
+// 	name: "Harry Potter",
+// 	UserId: 1
+// })
