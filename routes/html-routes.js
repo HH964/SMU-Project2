@@ -1,0 +1,35 @@
+module.exports = function(app, db) {
+    app.get("/items/:category", function(req, res) {
+        db.Item.findAll({
+            where: {
+                catagory: req.params.category
+            }
+        }).then(function(data) {
+            res.render("catagory", {item: data});
+        })
+    })
+
+    app.get("/items/:price", function(req, res) {
+        db.Item.findAll({
+            where: {
+                price: req.params.price
+            }
+        }).then(function(data) {
+            res.render("catagory", {item: data});
+        })
+    })
+
+    app.get("/items/:description", function(req, res) {
+        db.Item.findAll({
+            where: {
+                description: req.params.description
+            }
+        }).then(function(data) {
+            res.render("catagory", {item: data});
+        })
+    })
+
+    app.get("/upload", function(req,res){
+        res.render("upload");
+    })
+}
