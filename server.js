@@ -10,7 +10,7 @@ var PORT = process.env.PORT || 5000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("public"))
+app.use(express.static("./public"))
 
 //for passport
 app.use(
