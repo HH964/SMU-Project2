@@ -6,7 +6,7 @@ var exphbs = require("express-handlebars");
 var db = require("./models");
 
 var app = express();
-var PORT = process.env.PORT || 5000;
+var PORT = process.env.PORT || 5001;
 
 app.use(express.static('public'))
 
@@ -30,26 +30,28 @@ app.set("views", "./views");
 app.engine("hbs", exphbs({ extname: ".hbs" }));
 app.set("view engine", ".hbs");
 
-// app.get("/", function(req, res) {
-// 	res.redirect("/signin");
-// });
+app.get("/", function(req, res) {
+	res.redirect("/signin");
+});
 
 //routes
 require("./routes/auth.js")(app, passport);
 
+require("./routes/sql-routes")(app, db);
 require("./routes/html-routes")(app, db);
 require("./routes/api-routes")(app, db);
 
+
 //passport init
 require("./config/passport/passport.js")(passport, db.User);
-app.listen(PORT, function() {
-	console.log("App listening on http://localhost:" + PORT);
-});
 
 
-// db.sequelize.sync().then(function() {
-	
-// });
+
+ db.sequelize.sync().then(function() {
+	app.listen(PORT, function() {
+		console.log("App listening on http://localhost:" + PORT);
+	});	
+ });
 
 
 // db.Item.create({
