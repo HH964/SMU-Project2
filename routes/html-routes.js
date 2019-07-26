@@ -74,8 +74,17 @@ module.exports = function(app, db) {
         })
     })
 
-    app.get("/upload", function(req,res){
+    app.get("/upload", isLoggedIn, function(req,res){
         res.render("upload");
     })
+
+    function isLoggedIn(req, res, next) {
+		if (req.isAuthenticated()) return next();
+
+		res.redirect("/signin");
+	}
 }
+
+}
+
 
