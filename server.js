@@ -6,11 +6,13 @@ var exphbs = require("express-handlebars");
 var db = require("./models");
 
 var app = express();
-var PORT = process.env.PORT || 5000;
+var PORT = process.env.PORT || 5001;
+
+app.use(express.static('public'))
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("public"))
+app.use(express.static("./public"))
 
 //for passport
 app.use(
@@ -34,35 +36,23 @@ app.get("/", function(req, res) {
 
 //routes
 require("./routes/auth.js")(app, passport);
+
+require("./routes/sql-routes")(app, db);
 require("./routes/html-routes")(app, db);
 require("./routes/api-routes")(app, db);
+
+
 //passport init
 require("./config/passport/passport.js")(passport, db.User);
 
-db.sequelize.sync().then(function() {
+
+
+ db.sequelize.sync().then(function() {
 	app.listen(PORT, function() {
 		console.log("App listening on http://localhost:" + PORT);
-	});
-});
+	});	
+ });
 
-<<<<<<< HEAD
-// Static directory
-app.use(express.static("public"));
-
-// Routes
-// =============================================================
-require("./routes/api-routes.js")(app);
-require("./routes/html-routes.js")(app);
-
-// Syncing our sequelize models and then starting our Express app
-// =============================================================
-db.sequelize.sync({ force: true }).then(function() {
-  app.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
-  });
-});
-
-=======
 
 // db.Item.create({
 // 	catagory: "books",
@@ -71,4 +61,5 @@ db.sequelize.sync({ force: true }).then(function() {
 // 	name: "Harry Potter",
 // 	UserId: 1
 // })
->>>>>>> master
+
+
