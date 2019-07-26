@@ -1,8 +1,14 @@
 {
   "development": {
+<<<<<<< HEAD
     "username": "garage",
     "password": "password",
     "database": "garage_sale",
+=======
+    "username": null,
+    "password": null,
+    "database": null,
+>>>>>>> master
     "host": "127.0.0.1",
     "dialect": "mysql",
     "operatorsAliases": false

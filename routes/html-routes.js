@@ -43,7 +43,11 @@ module.exports = function (app, db) {
         res.render("cart");
     })
     app.get("/catagory", function (req, res) {
+<<<<<<< HEAD
         res.render("catagory");
+=======
+            res.render("catagory");
+>>>>>>> master
     })
     app.get("/clothes", function (req, res) {
         res.render("clothes");
@@ -64,4 +68,22 @@ module.exports = function (app, db) {
         res.render("profile");
     })
     
+<<<<<<< HEAD
 }
+=======
+}
+    app.get("/upload", isLoggedIn, function(req,res){
+        res.render("upload");
+    })
+
+    function isLoggedIn(req, res, next) {
+		if (req.isAuthenticated()) return next();
+
+		res.redirect("/signin");
+	}
+}
+
+}
+
+
+>>>>>>> master
