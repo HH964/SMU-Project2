@@ -44,10 +44,16 @@ module.exports = function(app) {
 };
 
 module.exports = function(app, db) {
-    app.get("/items/:category", function(req, res) {
+    app.get("/items", function(req, res) {
+        db.Item.findAll({}).then(function(data) {
+            res.render("catagory", {item: data});
+        })
+    })
+    
+    app.get("/items/:catagory", function(req, res) {
         db.Item.findAll({
             where: {
-                catagory: req.params.category
+                catagory: req.params.catagory
             }
         }).then(function(data) {
             res.render("catagory", {item: data});
