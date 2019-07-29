@@ -1,7 +1,11 @@
 module.exports = function(app, db) {
     app.get("/items", function(req, res) {
-        db.Item.findAll({}).then(function(data) {
-            res.render("catagory", {item: data});
+        db.Item.findAll({
+            where: {
+                UserId: req.user.id
+            }
+        }).then(function(data) {
+            res.render("myItems", {item: data});
         })
     })
     

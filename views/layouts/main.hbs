@@ -5,12 +5,15 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="/styles/style.css" />
+        
+    
     <script
         src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
         crossorigin="anonymous"></script>
     <title>Passport</title>
+    {{!-- responsive --}}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
        <!-- link to css -->
@@ -23,10 +26,13 @@
     crossorigin="anonymous"
 </head>
 
-<body>
+<body style="background-color: #b2dfdb7a;">
     
-    <nav class="navbar navbar-expand-lg navbar-light bg-light;  " style="background: -webkit-linear-gradient(90deg, #00ab80, #00a980 50%, #026d6d););" >
-        <a class="nav-link" href="/index">Garage Sale</a>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light;  " style="padding: 2.5rem 1rem;background: -webkit-linear-gradient(90deg, #00ab8075, #00a980de 50%, #026d6d););box-shadow: 5px 5px 5px #054741cf;" >
+        <a class="nav-link" href="./index" style="color: black;
+    font-size: 23px;">Garage Sale</a>
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -45,53 +51,37 @@
                     
                     <a class="nav-link" href="/items">My Items<span class="sr-only">(current)</span></a>
                 </li>
-
-                
-
-
             </ul>
         </div>
     </nav>
     <br>
-    {{!-- <div class="input-group mb-3" style="  width: 25%;    margin-left: 1130px;">
-        <input type="text" class="form-control" placeholder="Search" aria-label="Search"
-            aria-describedby="button-addon2">
-        <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
-        </div>
-    </div> --}}
     <br>
-    {{!-- <div class="dropdown" style="margin-top:-78px;margin-left:1022px;">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Price
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Price up</a>
-            <a class="dropdown-item" href="#">Price down</a>
-
-        </div>
-    </div> --}}
-    <br>
-    <div class="dropdown" style="margin-top:-61px;margin-left:880px;">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
+    <div class="dropdown" style="margin-top:-61px;margin-left:1000px;">
+        <button class="btn btn-secondary dropdown-toggle" style=" margin-left: 293px;
+    margin-top: 40px;color: #E8EAF6;
+    background-color: #6793a9;
+    border-color: #ffffff;
+"type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false" >
             Category
         </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"style="background-color: #dce4ea;color: #455A64;">
             <a class="dropdown-item" href="/items/furniture">Furniture</a>
             <a class="dropdown-item" href="/items/clothes">Clothes</a>
             <a class="dropdown-item" href="/items/autos">Auto</a>
             <a class="dropdown-item" href="/items/electronics">Electronics</a>
             <a class="dropdown-item" href="/items/books">Books</a>
+
         </div>
     </div>
+
     {{{ body }}}
 
 
     <!-- JS -->
-    <script src="assests/javascript/app.js"></script>
-    <script src="assests/javascript/weather.js"></script>
+    {{!-- <script src="assests/javascript/app.js"></script>
+    <script src="assests/javascript/weather.js"></script> --}}
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"

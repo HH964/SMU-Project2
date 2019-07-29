@@ -1,0 +1,17 @@
+<br>
+<br>
+<br>
+<div class="row" style="margin-left:10px;">
+{{#each item}}
+<div class="column">
+<div class="card ml-3" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{name}}</h5>
+    <p class="card-text">{{description}}</p>
+    <p class="card-text"><small class="text-muted">Price: {{price}}</small></p>
+    <a href="#" class="btn btn-primary" data-id={{id}}>Purchase</a>
+  </div>
+</div>
+</div>
+{{/each}}
+</div>

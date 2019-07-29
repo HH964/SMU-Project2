@@ -1,7 +1,3 @@
-.nav-bar {
-
-    padding: 2.5rem 1rem;
-}
 
 .card-header button.delete,
 button.edit {
@@ -25,4 +21,14 @@ button.edit {
 
 .top-30 {
     margin-top: 30px;
+}
+
+.navbar {
+    padding: 2.5rem 1rem;
+}
+
+body {
+    background: blue;
+    width: 100%;
+    height: 500px;
 }
