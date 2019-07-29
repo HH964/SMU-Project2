@@ -38,7 +38,7 @@ $(document).ready(function () {
         var newTr = $("<tr>");
         newTr.data("user", userData);
         newTr.append("<td>" + userData.name + "</td>");
-        newTr.append("<td><a href='/dashboard?user_id=" + userData.id + "'>Go to Items</a></td>");
+        newTr.append("<td><a href='/items?user_id=" + userData.id + "'>Go to Items</a></td>");
         newTr.append("<td><a href='/upload?user_id=" + userData.id + "'>Sell an Item</a></td>");
         newTr.append("<td><a style='cursor:pointer;color:red' class='delete-user'>Delete user</a></td>");
         return newTr;
